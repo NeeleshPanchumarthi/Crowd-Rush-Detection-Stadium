@@ -1,0 +1,5 @@
+Mall counting check (100 frames, every 20-th, whole frame)
+  GT mean count 31.6 (range 14-48)
+  DM-Count SHB           MAE 10.37  RMSE 11.14  bias -10.37
+  YOLO11n COCO person    MAE 13.02  RMSE 13.67  bias -13.02
+  speed: DM-Count 1869 ms/frame (640x480), YOLO11n 117 ms/frame

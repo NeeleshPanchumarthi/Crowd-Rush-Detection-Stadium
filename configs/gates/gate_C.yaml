@@ -1,0 +1,29 @@
+# Gate C: Mall dataset frames (real CCTV, 13-53 people, ~2 frames per second).
+# Ground points estimated from people's heights in the image (about 10 m deep, 11-20 m wide).
+gate_id: C
+name: Gate C (South)
+source: data/mall_dataset/frames
+source_fps: 2
+width_m: 6.0
+capacity_ppm: 240
+free_speed_mps: 1.3
+exit_dir: [0.0, 1.0]       # towards the camera
+
+calibration_points:
+  image: [[0, 150], [640, 150], [640, 470], [0, 470]]
+  floor: [[-4, 0], [16, 0], [11.5, 10], [0.5, 10]]
+
+zone_m: [[1, 2], [11, 2], [11, 9.8], [1, 9.8]]
+lines:
+  approach: [[1, 3], [11, 3]]
+  gate: [[1, 9], [11, 9]]
+neighbours: [A, B]
+
+limits:
+  density: {amber: 2.0, red: 4.0}
+  score: {amber: 0.40, red: 0.65}
+  motion_variance_max: 0.20
+  accumulation_max_ppm: 60
+hold_seconds: {up: 3, down: 6}
+perception:
+  first_count_scale: 1.0

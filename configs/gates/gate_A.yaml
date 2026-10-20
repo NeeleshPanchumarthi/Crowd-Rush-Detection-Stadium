@@ -1,0 +1,32 @@
+# Gate A: synthetic exit gate (scripts/make_synthetic_gate.py) where a crowd builds up.
+# Floor coordinates in metres: x across the gate, y from the gate (y = 0) back towards the camera.
+gate_id: A
+name: Gate A (North)
+source: data/synthetic/gate_A_buildup.mp4
+width_m: 3.0
+capacity_ppm: 180          # 3 m opening x ~1 person per metre per second
+free_speed_mps: 1.3
+exit_dir: [0.0, -1.0]      # people leave towards y < 0
+
+# Four ground points picked once (scripts/calibrate.py); H is computed from them on load.
+calibration_points:
+  image: [[330, 200], [650, 200], [760, 430], [250, 430]]
+  floor: [[0, 0], [8, 0], [8, 9], [0, 9]]
+
+zone_m: [[1, 0], [7, 0], [7, 6], [1, 6]]      # 36 m^2 approach area in front of the gate
+lines:
+  approach: [[1, 6], [7, 6]]                  # inflow
+  gate: [[2.5, 0], [5.5, 0]]                  # outflow
+neighbours: [B, C]
+
+limits:
+  density: {amber: 2.0, red: 4.0}
+  score: {amber: 0.40, red: 0.65}
+  motion_variance_max: 0.20
+  accumulation_max_ppm: 60
+weights: {density: 0.40, stall: 0.30, variance: 0.15, accumulation: 0.15}
+hold_seconds: {up: 3, down: 6}
+perception:
+  switch_density: 1.0       # far camera: YOLO starts missing people in groups early (see outputs/gate_A)
+  hysteresis: 0.3
+

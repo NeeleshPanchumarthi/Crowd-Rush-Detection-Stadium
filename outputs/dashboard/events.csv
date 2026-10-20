@@ -1,0 +1,3 @@
+wall_time,video_time,gate_id,gate_name,level,previous,message,redirect_to,density,speed,score,accumulation_ppm,outflow_ppm,latency_ms
+1792494534.7805433,92.9,A,Gate A (North),amber,green,"Gate A (North) is crowding: stewards on standby, watch the approach.",,1.277,0.34,0.416,80.44,16.36,64.5
+1792494574.8169417,132.7,A,Gate A (North),red,amber,Send security to Gate A (North). Redirect crowd to Gate B (East).,B,2.834,0.039,0.679,158.49,3.23,251.9

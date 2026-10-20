@@ -1,0 +1,26 @@
+# Gate B: real footage (OpenCV sample clip vtest.avi), a quiet concourse with a few walkers.
+# The ground points are approximate (picked by eye on the road surface).
+gate_id: B
+name: Gate B (East)
+source: data/vtest.avi
+width_m: 4.0
+capacity_ppm: 120
+free_speed_mps: 1.3
+exit_dir: [1.0, 0.0]
+
+calibration_points:
+  image: [[330, 200], [650, 200], [760, 430], [250, 430]]
+  floor: [[0, 0], [8, 0], [8, 9], [0, 9]]
+
+zone_m: [[0.5, -1], [8, -1], [8, 5], [0.5, 5]]
+lines:
+  approach: [[1.5, -1], [1.5, 5]]
+  gate: [[7, -1], [7, 5]]
+neighbours: [A, C]
+
+limits:
+  density: {amber: 2.0, red: 4.0}
+  score: {amber: 0.40, red: 0.65}
+  motion_variance_max: 0.20
+  accumulation_max_ppm: 60
+hold_seconds: {up: 3, down: 6}
